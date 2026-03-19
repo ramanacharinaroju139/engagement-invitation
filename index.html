@@ -14,7 +14,6 @@ font-family:'Poppins',sans-serif;
 background:#0a1b3d;
 color:white;
 text-align:center;
-overflow-x:hidden;
 }
 
 /* INTRO */
@@ -34,32 +33,12 @@ z-index:1000;
 width:220px;
 height:140px;
 background:#FFD700;
-position:relative;
-cursor:pointer;
 border-radius:8px;
-}
-
-.flap{
-position:absolute;
-width:100%;
-height:100%;
-background:#e6c200;
-clip-path:polygon(0 0,100% 0,50% 50%);
-transition:1s;
-}
-
-.letter{
-position:absolute;
-top:20px;
-left:10px;
-width:200px;
-height:100px;
-background:white;
-color:black;
 display:flex;
 align-items:center;
 justify-content:center;
 font-weight:bold;
+cursor:pointer;
 }
 
 /* HERO */
@@ -71,125 +50,89 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-transform:scale(1.2);
 opacity:0;
+transform:scale(1.1);
 transition:1s;
 }
 
 .names{
 font-family:'Cinzel',serif;
-font-size:65px;
+font-size:60px;
 color:#FFD700;
 }
 
 .subtitle{
-font-size:26px;
+font-size:24px;
 }
 
 .date{
-font-size:20px;
-}
-
-.ring{
-font-size:70px;
-margin-top:20px;
-animation:spin 6s linear infinite;
-}
-
-@keyframes spin{
-100%{transform:rotate(360deg);}
-}
-
-/* SCROLL INDICATOR */
-
-.scroll-down{
-position:absolute;
-bottom:30px;
-font-size:14px;
-color:#fff;
-animation:fade 2s infinite;
-}
-
-@keyframes fade{
-0%,100%{opacity:0.3;}
-50%{opacity:1;}
+font-size:18px;
 }
 
 /* SECTION */
 
 .section{
-padding:80px 20px;
-max-width:1000px;
+padding:50px 20px; /* reduced gap */
+max-width:900px;
 margin:auto;
 }
 
 .countdown{
-font-size:40px;
+font-size:34px;
 color:#FFD700;
 }
 
-/* HEARTFUL TEXT */
+/* STORY */
 
 .story{
-font-size:18px;
-line-height:1.8;
-max-width:700px;
-margin:auto;
+font-size:17px;
+line-height:1.7;
 color:#ddd;
 }
 
-/* GALLERY */
+/* GALLERY (NO SCROLL, FULL IMAGES) */
 
-.gallery-wrapper{
-position:relative;
-}
-
-.insta-gallery{
+.gallery{
 display:flex;
-overflow-x:auto;
+flex-wrap:wrap;
+justify-content:center;
 gap:20px;
-padding:20px;
-scroll-behavior:smooth;
+margin-top:20px;
 }
 
-.insta-gallery img{
-min-width:80%;
-height:400px;
-border-radius:20px;
+.gallery img{
+width:280px;
+height:360px;
 object-fit:cover;
-}
-
-/* ARROWS */
-
-.arrow{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:30px;
-background:rgba(0,0,0,0.4);
-padding:10px;
-cursor:pointer;
-}
-
-.left{left:10px;}
-.right{right:10px;}
-
-/* HINT TEXT */
-
-.swipe-hint{
-font-size:14px;
-color:#ccc;
-margin-top:-10px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.6);
 }
 
 /* CARD */
 
 .card{
 background:rgba(255,255,255,0.1);
-padding:30px;
+padding:25px;
 border-radius:15px;
 max-width:400px;
 margin:auto;
+}
+
+/* FINAL MESSAGE */
+
+.final-msg{
+font-size:18px;
+line-height:1.8;
+color:#eee;
+margin-top:20px;
+}
+
+/* FOOTER */
+
+.footer{
+padding:30px;
+font-size:14px;
+color:#aaa;
 }
 
 /* WHATSAPP */
@@ -216,8 +159,7 @@ box-shadow:0 5px 15px rgba(0,0,0,0.4);
 
 <div class="intro" id="intro">
 <div class="envelope" onclick="openInvite()">
-<div class="flap" id="flap"></div>
-<div class="letter">Open</div>
+💌 Tap to Open Invitation
 </div>
 </div>
 
@@ -227,8 +169,6 @@ box-shadow:0 5px 15px rgba(0,0,0,0.4);
 <div class="names">Ram ❤️ Yuktha</div>
 <div class="subtitle">We're Getting Engaged</div>
 <div class="date">April 12, 2026 • 6:00 PM</div>
-<div class="ring">💍</div>
-<div class="scroll-down">⬇ Scroll Down</div>
 </div>
 
 <!-- COUNTDOWN -->
@@ -243,10 +183,10 @@ box-shadow:0 5px 15px rgba(0,0,0,0.4);
 <div class="section">
 <h2>Our Story ❤️</h2>
 <p class="story">
-Two beautiful souls found each other,  
-and in that moment, life became a journey of love, laughter, and forever.  
-With immense joy in our hearts, we invite you  
-to be a part of our special day and bless us.
+Two hearts met, two souls connected,  
+and from that moment, life became more meaningful.  
+With love, laughter, and endless memories ahead,  
+we are excited to begin this beautiful journey together.
 </p>
 </div>
 
@@ -255,21 +195,11 @@ to be a part of our special day and bless us.
 <div class="section">
 <h2>Our Moments 📸</h2>
 
-<div class="gallery-wrapper">
-
-<div class="arrow left" onclick="scrollGallery(-1)">❮</div>
-
-<div class="insta-gallery" id="gallery">
+<div class="gallery">
 <img src="photo1.jpeg">
 <img src="photo2.jpeg">
 <img src="photo3.jpeg">
 </div>
-
-<div class="arrow right" onclick="scrollGallery(1)">❯</div>
-
-</div>
-
-<div class="swipe-hint">👉 Swipe or use arrows to view more</div>
 
 </div>
 
@@ -279,21 +209,43 @@ to be a part of our special day and bless us.
 <h2>Event Details</h2>
 
 <div class="card">
-<p>April 12, 2026 • 6PM</p>
-<p>Hotel Sindhu Towers</p>
+<p><b>Date:</b> April 12, 2026</p>
+<p><b>Time:</b> 6:00 PM onwards</p>
+<p><b>Venue:</b> Hotel Sindhu Towers</p>
 
 <a href="https://maps.app.goo.gl/Dyys4CopRbk1stgD9" target="_blank">
 <iframe src="https://maps.google.com/maps?q=hotel%20sindhu%20towers&output=embed"
-width="100%" height="300" style="pointer-events:none;"></iframe>
+width="100%" height="250" style="pointer-events:none;border-radius:10px;"></iframe>
 </a>
 
 </div>
 
 </div>
 
+<!-- FINAL MESSAGE -->
+
+<div class="section">
+<h2>With Love ❤️</h2>
+
+<p class="final-msg">
+Your presence will make our celebration even more special.  
+We would be truly honored to have you with us  
+as we take this beautiful step in our lives.  
+
+Join us, bless us, and celebrate love together ✨
+</p>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+Made with ❤️ for our special day
+</div>
+
 <!-- WHATSAPP -->
 
-<a href="https://wa.me/916303850729?text=Hi%20I%20have%20a%20question" 
+<a href="https://wa.me/916303850729?text=Hi%20I%20have%20a%20question%20regarding%20the%20engagement" 
 target="_blank" class="whatsapp-btn">
 💬 Chat with us
 </a>
@@ -318,19 +270,12 @@ var now = new Date().getTime();
 var d = countDownDate - now;
 
 document.getElementById("countdown").innerHTML =
-Math.floor(d/86400000)+"D "+
-Math.floor((d%86400000)/3600000)+"H "+
-Math.floor((d%3600000)/60000)+"M "+
-Math.floor((d%60000)/1000)+"S";
+Math.floor(d/86400000)+" Days "+
+Math.floor((d%86400000)/3600000)+" H "+
+Math.floor((d%3600000)/60000)+" M "+
+Math.floor((d%60000)/1000)+" S";
 
 },1000);
-
-/* GALLERY SCROLL */
-
-function scrollGallery(dir){
-let g=document.getElementById("gallery");
-g.scrollBy({left:dir*300,behavior:'smooth'});
-}
 
 </script>
 
