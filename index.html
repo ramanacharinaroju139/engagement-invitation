@@ -70,11 +70,11 @@ font-size:20px;
 font-size:16px;
 }
 
-/* ⬇️ SCROLL BUTTON (MOVED UP) */
+/* ⬇️ SCROLL BUTTON */
 
 .scroll-btn{
 position:absolute;
-bottom:60px; /* moved higher */
+bottom:60px;
 padding:12px 22px;
 background:#FFD700;
 color:#000;
@@ -105,26 +105,20 @@ line-height:1.6;
 color:#ddd;
 }
 
-/* 📸 GALLERY SIDE-BY-SIDE */
+/* 📸 GALLERY (FIXED FOR ALL DEVICES) */
 
 .gallery{
 display:flex;
-gap:15px;
+gap:10px;
 justify-content:center;
-flex-wrap:wrap;
+flex-wrap:nowrap;
+padding:0 10px;
 }
 
 .gallery img{
-width:45%;
+width:48%;
 border-radius:12px;
-}
-
-/* MOBILE FIX */
-
-@media(max-width:600px){
-.gallery img{
-width:100%;
-}
+object-fit:cover;
 }
 
 /* CARD */
